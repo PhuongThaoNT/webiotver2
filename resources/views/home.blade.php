@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('menu')
 <link rel="stylesheet" href="{{ asset('css/csshomemember.css') }}">
 <script src="{{ asset('javascript/home.js') }}"></script>
 <nav class="navbar navbar-default navbar-static-top" style="background-color: #f6f6f6 ">
@@ -54,11 +54,9 @@
             </div>
         </div>
     </nav>
-    
-<div class="container">
-    <div class="mainhome">
-        
-    </div>
+    @endsection
+    @section('body')
+
     <!--member-->
         <div class="member">
           <h4>1. Member:</h4>
@@ -213,5 +211,4 @@
           </div>
         </div>
     </div>
-</div>
 @endsection

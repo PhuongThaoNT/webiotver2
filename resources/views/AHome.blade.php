@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('menu')
 <nav class="navbar navbar-default navbar-static-top" style="background-color: #f6f6f6 ">
         <div class="container">
             <div class="navbar-header">

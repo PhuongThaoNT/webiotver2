@@ -29,8 +29,39 @@
     </style>
 </head>
 <body id="app-layout">
-    
-    @yield('content')
+    @yield('menu')
+    <div class="mainbody">
+       <div class="col-md-3">
+
+        </div>
+        <!--slide-->
+            <div class="col-md-6">
+             @yield('body')
+            
+            </div>
+            
+        <!--facebook plugin-->
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item"><div class="fb-page" data-href="https://www.facebook.com/fimouet/?ref=ts&fref=ts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></li>
+            </ul>
+            
+        </div>
+
+    </div>
+
+
+<script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
