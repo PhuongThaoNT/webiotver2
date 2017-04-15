@@ -33,6 +33,31 @@
     <div class="mainbody">
        <div class="col-md-3">
 
+            <h5>Thông báo</h5>
+            <hr style="margin-top: 1%">
+            <div class="panel panel-default">
+                <div class="panel-body"></div>
+            </div>
+            <div class="tincn">
+            <h5>Tin công nghệ</h5>
+            <hr style="margin-top: 1%">
+                <?php 
+                include_once('simple_html_dom.php');
+                $url = 'https://iotvietnam.com/tro-ly-ao-nha-thong-minh-len-ngoi/';
+                $html = file_get_html($url);
+                $title = $html->find('.entry-title',0);
+                $img = $html->find('.aligncenter',0);
+                ?>
+                <div class="col-md-4">
+                <?php
+                     echo "<img style=\"width: 100%; height:100%\" src=\"".$img->src."\" />";
+                ?>
+                </div>
+                <div class="col-md-8">
+                    <h5><a href="https://iotvietnam.com/tro-ly-ao-nha-thong-minh-len-ngoi/" style="color: black"><?=$title->innertext?></a></h5>
+                </div>
+                
+            </div>
         </div>
         <!--slide-->
             <div class="col-md-6">

@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
+Route::post('/welcome/info', 'WelcomeController@info');
 
 Route::auth();
 
@@ -25,4 +24,5 @@ Route::get('admin/register', 'Admin\AuthController@getRegister');
 Route::post('admin/register', 'Admin\AuthController@postRegister');
 
 Route::get('admin/dashboard', 'AdminController@getIndex');
+
 
