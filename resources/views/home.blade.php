@@ -64,14 +64,33 @@
                 <ul class="caption-style-2">
                     <div class="col-md-4">
                         <li>
-                           <img src="image/Chinh1.jpg" alt="">
+                        <?php
+                      /*    error_reporting(E_ALL ^ E_DEPRECATED);
+                          mysql_connect("localhost","root","") or die ("no connect");
+                          mysql_select_db("webiot");
+                          mysql_set_charset('utf8');
+                          $result = mysql_query("SELECT * FROM member");
+                          while($row = mysql_fetch_assoc($result)){
+                            echo "<img style=\"width:100%; height:100%\"src=\"" .$row['img']."\" alt=\"\">";
+                            echo "<div class=\"caption\">".
+                            "<div class=\"blur\"></div>".
+                            "<div class=\"caption-text\">".
+                            "<h4>Hoang Thanh Hang</h4>".
+                            "<p>Web</p>".
+                            "</div>".
+                            "</div> ";          
+                            }
+                          mysql_free_result($result);
+                          mysql_close();*/
+                        ?>
+                          <!-- <img src="image/Chinh1.jpg" alt="">
                             <div class="caption">
                                 <div class="blur"></div>
                                 <div class="caption-text">
                                     <h4>Pham Van Chinh</h4>
                                     <p>Web</p>
                                 </div>
-                            </div> 
+                            </div> -->
                         </li>
                     </div>
                     <div class="col-md-4">
@@ -117,17 +136,21 @@
                 mysql_connect("localhost","root","") or die ("no connect");
                 mysql_select_db("webiot");
                 mysql_set_charset('utf8');
-                $result = mysql_query("SELECT * FROM device");
+              //  if (!function_exists('info')) {
+               //   function info(){
+                    $result = mysql_query("SELECT * FROM device");
                     while($row = mysql_fetch_assoc($result)){
-                        echo "<tr>\n";
-                        echo "<td>" . $row['id']."</td>\n";
-                        echo "<td>". $row['name']."</td>\n";
-                        echo "<td>". $row['describe']. "</td>\n";
-                        echo  "<td>" . $row['date']. "</td>\n";
-                        echo "</tr>\n";
-                    }
+                          echo "<tr>\n";
+                          echo "<td>" . $row['id']."</td>\n";
+                          echo "<td>". $row['name']."</td>\n";
+                          echo "<td>". $row['describe']. "</td>\n";
+                          echo  "<td>" . $row['date']. "</td>\n";
+                          echo "</tr>\n";
+                      }
                     mysql_free_result($result);
-                mysql_close();
+                    //return $result;
+                 // }
+            //  }
                 ?>
 
             </table>

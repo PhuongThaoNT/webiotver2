@@ -47,40 +47,41 @@
         </div>
     </nav>
 <!--viet bai-->
+    <?php 
+        error_reporting(E_ALL ^ E_DEPRECATED);
+        mysql_connect("localhost","root","") or die ("no connect");
+        mysql_select_db("webiot");
+        mysql_set_charset('utf8');
+        $vietbai = "";
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            if(isset($_POST["ten"])) { $vietbai = $_POST['ten']; }
+                $sql = "INSERT INTO post (text) VALUES ('$vietbai')";
+            }
+        mysql_close();
+    ?>
     <div id="dangbai" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Đăng bài</h4>
-              </div>
-              <div class="modal-body">
-
-              <?php 
-                error_reporting(E_ALL ^ E_DEPRECATED);
-                mysql_connect("localhost","root","") or die ("no connect");
-                mysql_select_db("webiot");
-                mysql_set_charset('utf8');
-                $vietbai = "";
-                if ($_SERVER["REQUEST_METHOD"] == "POST"){
-                    if(isset($_POST["ten"])) { $vietbai = $_POST['ten']; }
-                    $sql = "INSERT INTO post (text) VALUES ('$vietbai')";
-                }
-                mysql_close();
-                ?>
-
                 <form action="" method="post">
-                  <textarea name="ten" id="ten"></textarea>
-                  <script>CKEDITOR.replace('ten');</script>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Đăng bài</button>
-              </div>
-            </div>
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Đăng bài</h4>
+                  </div>
+                  <div class="modal-body">
 
+                  
+
+                      <textarea name="ten" id="ten"></textarea>
+                      <script>CKEDITOR.replace('ten');</script>
+                    </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" >Đăng bài</button>
+                  </div>
+                </form>
+              
+            </div>
         </div>
     </div>
+
 @endsection

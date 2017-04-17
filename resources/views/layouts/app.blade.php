@@ -32,14 +32,36 @@
     @yield('menu')
     <div class="mainbody">
        <div class="col-md-3">
-
-            <h5>Thông báo</h5>
-            <hr style="margin-top: 1%">
+            <strong>THÔNG BÁO</strong>
+            
             <div class="panel panel-default">
-                <div class="panel-body"></div>
+            <div class="panel-body">
+            <ul class="list-group">
+            <?php 
+            error_reporting(E_ALL ^ E_DEPRECATED);
+            mysql_connect("localhost","root","") or die ("no connect");
+            mysql_select_db("webiot");
+            mysql_set_charset('utf8');
+            $result = mysql_query("SELECT * FROM post");
+            while($row = mysql_fetch_assoc($result)){
+                echo 
+                    "<b>".
+                    $row['text'].
+                    "</b>".
+                    "<h6>".
+                    $row['time'].
+                    "</h6>".
+                    "<hr style=\"margin-top: 1%\">";
+                
+            }
+            mysql_free_result($result);
+            mysql_close();
+            ?>
+            </ul>
+            </div>
             </div>
             <div class="tincn">
-            <h5>Tin công nghệ</h5>
+            <strong>TIN CÔNG NGHỆ</strong>
             <hr style="margin-top: 1%">
                 <?php 
                 include_once('simple_html_dom.php');
